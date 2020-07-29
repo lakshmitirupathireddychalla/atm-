@@ -1,0 +1,31 @@
+import juspay
+
+import time
+
+ juspay.api_key='ATM'
+
+juspay.environment='sandbox'
+
+def dumb(obj):
+
+  print"{"
+
+  for attr in dir(obj):
+
+       print "\t%s: %s" %(attr,getattr(obj,attr))
+
+print "}"
+
+order=juspay.Orders.create(order_id=str(int(time.time()))),amount='100.00', currency="INR")
+
+print 'Sucess:%r' % order.order_id
+
+order = juspay.Orders.status(order_id=order.order_id)
+
+print dump(order)
+
+print "Payment"
+
+print dump(payments)
+
+print dump(payments.payment.authentication)
